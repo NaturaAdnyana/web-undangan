@@ -45,7 +45,12 @@
                       <div>
                           <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-900 focus:ring-blue-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                               <span class="sr-only">Open user menu</span>
-                              <img class="h-8 w-8 rounded-full" src="{{ URL('images/user.png') }}" alt="">
+                              @if (Auth::user()->avatar && Auth::user()->avatar == '')
+                                  <img class="h-8 w-8 rounded-full" src="{{URL(Auth::user()->avatar)}}" alt="">
+                              @else
+                                  <img class="h-8 w-8 rounded-full" src="{{ URL('images/user.png') }}" alt="">
+                              @endif
+                              
                           </button>
                       </div>
                       <div id="user-menu" class="origin-top-right absolute top-11 right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-100 ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
