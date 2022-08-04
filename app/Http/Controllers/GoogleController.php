@@ -45,6 +45,8 @@ class GoogleController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'google_id'=> $user->id,
+                    'avatar' => $user->avatar,
+                    'avatar_original' => $user->avatar_original,
                     'password' => encrypt('123456dummy')
                 ]);
       
