@@ -50,8 +50,9 @@
           <label for="theme" class="block text-sm font-medium text-gray-700">Pilih Tema</label>
           <select id="theme" name="id_tema" autocomplete="theme-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
             @foreach ($tema as $t)
-            <option value="{{ $t->id }}">{{ $t->judul_tema }}</option>
+            <option value="{{ $t->id }}" >{{ $t->judul_tema }}</option>
             @endforeach
+            {{-- <option value="balinese" value="1">Balinese</option> --}}
           </select>
         </div>
 

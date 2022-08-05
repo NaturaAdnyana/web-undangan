@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\GoogleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +16,13 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 Auth::routes();
+
+//   google auth
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -32,3 +37,5 @@ Route::get('/invitation/{user_id}/finish/{slug}', [App\Http\Controllers\Customer
 Route::get('/{slug}/', [App\Http\Controllers\InviteController::class, 'index'])->name('invite');
 Route::post('/invitation', [App\Http\Controllers\CustomerController::class, 'store'])->name('store');
 Route::post('/invitation/edit', [App\Http\Controllers\CustomerController::class, 'update'])->name('update');
+
+
